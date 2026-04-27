@@ -6,7 +6,7 @@ Optimized for **macOS 26+ (Tahoe)** on Apple Silicon. SwiftUI-first. Biased towa
 
 ## Works with any agent
 
-This skill follows the standard `SKILL.md + resources/` format — works with **Claude Code, Cursor, Cline, Codex, Continue, Aider, Sourcegraph Cody, Gemini CLI, Copilot CLI, Zed, Warp**, and any other agent that supports skills. Install once via [Vercel Skills](https://vercel.com/skills) (20+ supported agents) or drop it into your agent's local skills directory.
+This skill follows the standard `SKILL.md + resources/` format and is distributed through [**Vercel Skills**](https://vercel.com/changelog/introducing-skills-the-open-agent-skills-ecosystem) — install once across **20+ supported agents**: amp, antigravity, Claude Code, clawdbot, Codex, Cursor, droid, Gemini, Gemini CLI, GitHub Copilot, goose, kilo, kiro-cli, opencode, roo, trae, Windsurf, and more.
 
 ## What this skill teaches
 
@@ -63,24 +63,24 @@ building-macos-apps/
 
 ## Install
 
-### Via Vercel Skills (recommended — works in 20+ agents)
+### One-liner (recommended)
 
-[Vercel Skills](https://vercel.com/skills) installs a skill once and makes it available across every agent it supports — Claude Code, Cursor, Cline, Codex, Continue, Aider, Cody, Gemini CLI, Copilot CLI, Zed, Warp, and others. Point it at this repo's URL and it'll wire the SKILL.md into each agent's skill registry automatically.
+```bash
+npx skills add igorfelipeduca/building-macos-apps-skill
+```
 
-### Manual install
+That's it. The [Vercel Skills](https://vercel.com/changelog/introducing-skills-the-open-agent-skills-ecosystem) CLI detects which agents you have installed and wires this skill into each of them — Claude Code, Cursor, Codex, Windsurf, Gemini CLI, GitHub Copilot, goose, opencode, and the rest of the 20+ supported agents.
+
+### Manual install (fallback)
 
 Drop the skill into your agent's local skills directory:
 
 ```bash
-# Generic location used by .agents-style skill loaders
 git clone https://github.com/igorfelipeduca/building-macos-apps-skill.git \
-  ~/.agents/skills/building-macos-apps
+  ~/.claude/skills/building-macos-apps        # Claude Code
 
-# Claude Code
 git clone https://github.com/igorfelipeduca/building-macos-apps-skill.git \
-  ~/.claude/skills/building-macos-apps
-
-# Cursor — clone anywhere, then reference SKILL.md from .cursor/rules/
+  ~/.agents/skills/building-macos-apps        # generic .agents loader
 ```
 
 The `SKILL.md` is self-contained and uses standard YAML frontmatter (`name`, `description`, `metadata`) so any agent that consumes that format will pick it up without modification.
