@@ -1,8 +1,12 @@
 # building-macos-apps
 
-A Claude Code skill for building native, polished macOS apps from idea to signed and notarized DMG release. Covers the full arc — ideation, project bootstrap, **onboarding (this is the important part)**, feature implementation, Apple Intelligence integration, Liquid Glass polish, terminal hand-off, and GitHub Actions release pipeline.
+An agent skill for building native, polished macOS apps — from idea to signed and notarized DMG release. Covers the full arc: ideation, project bootstrap, **onboarding (this is the important part)**, feature implementation, Apple Intelligence integration, Liquid Glass polish, terminal hand-off, and GitHub Actions release pipeline.
 
 Optimized for **macOS 26+ (Tahoe)** on Apple Silicon. SwiftUI-first. Biased toward apps that feel like Apple shipped them, not assembled them.
+
+## Works with any agent
+
+This skill follows the standard `SKILL.md + resources/` format — works with **Claude Code, Cursor, Cline, Codex, Continue, Aider, Sourcegraph Cody, Gemini CLI, Copilot CLI, Zed, Warp**, and any other agent that supports skills. Install once via [Vercel Skills](https://vercel.com/skills) (20+ supported agents) or drop it into your agent's local skills directory.
 
 ## What this skill teaches
 
@@ -57,17 +61,29 @@ building-macos-apps/
         └── release.yml               # GitHub Actions release workflow template
 ```
 
-## Installation (Vercel Skills)
+## Install
 
-Install via your agent's skills directory or any compatible registry:
+### Via Vercel Skills (recommended — works in 20+ agents)
+
+[Vercel Skills](https://vercel.com/skills) installs a skill once and makes it available across every agent it supports — Claude Code, Cursor, Cline, Codex, Continue, Aider, Cody, Gemini CLI, Copilot CLI, Zed, Warp, and others. Point it at this repo's URL and it'll wire the SKILL.md into each agent's skill registry automatically.
+
+### Manual install
+
+Drop the skill into your agent's local skills directory:
 
 ```bash
-# Manual install — clone into your skills dir
+# Generic location used by .agents-style skill loaders
 git clone https://github.com/igorfelipeduca/building-macos-apps-skill.git \
   ~/.agents/skills/building-macos-apps
+
+# Claude Code
+git clone https://github.com/igorfelipeduca/building-macos-apps-skill.git \
+  ~/.claude/skills/building-macos-apps
+
+# Cursor — clone anywhere, then reference SKILL.md from .cursor/rules/
 ```
 
-Or reference the SKILL.md by URL from your agent's config — the file is self-contained and uses standard YAML frontmatter (`name`, `description`, `metadata`).
+The `SKILL.md` is self-contained and uses standard YAML frontmatter (`name`, `description`, `metadata`) so any agent that consumes that format will pick it up without modification.
 
 ## Why this skill exists
 
