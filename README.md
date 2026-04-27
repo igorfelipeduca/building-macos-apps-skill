@@ -4,9 +4,28 @@ An agent skill for building native, polished macOS apps — from idea to signed 
 
 Optimized for **macOS 26+ (Tahoe)** on Apple Silicon. SwiftUI-first. Biased toward apps that feel like Apple shipped them, not assembled them.
 
-## Works with any agent
+## Install
 
-This skill follows the standard `SKILL.md + resources/` format and is distributed through [**Vercel Skills**](https://vercel.com/changelog/introducing-skills-the-open-agent-skills-ecosystem) — install once across **20+ supported agents**: amp, antigravity, Claude Code, clawdbot, Codex, Cursor, droid, Gemini, Gemini CLI, GitHub Copilot, goose, kilo, kiro-cli, opencode, roo, trae, Windsurf, and more.
+```bash
+npx skills add igorfelipeduca/building-macos-apps-skill
+```
+
+Works in **20+ agents** via [Vercel Skills](https://vercel.com/changelog/introducing-skills-the-open-agent-skills-ecosystem) — Claude Code, Cursor, Codex, Windsurf, Gemini CLI, GitHub Copilot, goose, opencode, amp, antigravity, clawdbot, droid, kilo, kiro-cli, roo, trae, and others. The CLI detects which agents you have installed and wires this skill into each automatically.
+
+<details>
+<summary>Manual install (no Vercel Skills CLI)</summary>
+
+```bash
+git clone https://github.com/igorfelipeduca/building-macos-apps-skill.git \
+  ~/.claude/skills/building-macos-apps        # Claude Code
+
+git clone https://github.com/igorfelipeduca/building-macos-apps-skill.git \
+  ~/.agents/skills/building-macos-apps        # generic .agents loader
+```
+
+The `SKILL.md` is self-contained and uses standard YAML frontmatter (`name`, `description`, `metadata`) so any agent that consumes that format picks it up without modification.
+
+</details>
 
 ## What this skill teaches
 
@@ -60,30 +79,6 @@ building-macos-apps/
         ├── App.entitlements          # automation.apple-events for terminal handoff
         └── release.yml               # GitHub Actions release workflow template
 ```
-
-## Install
-
-### One-liner (recommended)
-
-```bash
-npx skills add igorfelipeduca/building-macos-apps-skill
-```
-
-That's it. The [Vercel Skills](https://vercel.com/changelog/introducing-skills-the-open-agent-skills-ecosystem) CLI detects which agents you have installed and wires this skill into each of them — Claude Code, Cursor, Codex, Windsurf, Gemini CLI, GitHub Copilot, goose, opencode, and the rest of the 20+ supported agents.
-
-### Manual install (fallback)
-
-Drop the skill into your agent's local skills directory:
-
-```bash
-git clone https://github.com/igorfelipeduca/building-macos-apps-skill.git \
-  ~/.claude/skills/building-macos-apps        # Claude Code
-
-git clone https://github.com/igorfelipeduca/building-macos-apps-skill.git \
-  ~/.agents/skills/building-macos-apps        # generic .agents loader
-```
-
-The `SKILL.md` is self-contained and uses standard YAML frontmatter (`name`, `description`, `metadata`) so any agent that consumes that format will pick it up without modification.
 
 ## Why this skill exists
 
